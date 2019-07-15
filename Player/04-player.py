@@ -29,7 +29,7 @@ class Player:
     
 #restart game 
     def restart(self, gold_coins, health_points, lives):
-        player1(__init__)
+        self.player1(__init__)
 
 
 player1 = Player('Abigail')
