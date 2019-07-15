@@ -8,17 +8,21 @@ class Cat:
         self.meal_time = meal_time
 
     def __str__(self):
-        return f"Please feed {self.name} some {self.preferred_food} at {self.meal_time}PM. "
+        return f"Please feed {self.name} some {self.preferred_food} at {self.meal_time}. "
+
     #instance method for meal time 
     def eats_at(self):
         if self.meal_time > 0 and self.meal_time < 12: 
-            return str(f'Meal time is at {self.meal_time}AM.')
+            return f'{self.meal_time} AM'
         if self.meal_time > 12 and self.meal_time < 24:
-            self.meal_time -= 12 
-            return str(f'Meal time is at {self.meal_time} PM.')
+            pm_meal_time = self.meal_time - 12 
+            return f'{pm_meal_time} PM'
+    
+    #instance method for meow - introduction 
+    def meow(self): 
+        return f"My name is {self.name} and I eat {self.preferred_food} at {self.eats_at()}."
     
     
-
 
 #two instances of Cat 
 garfield = Cat('Garfield', 'lasagna', 17)
@@ -27,7 +31,7 @@ hugo = Cat('hugo', 'jerk chicken', 16)
 print(garfield)
 print(hugo)
 
-garfield.eats_at()
-print(garfield)
-
+#print introduction 
+print(garfield.meow())
+print(hugo.meow())
 
