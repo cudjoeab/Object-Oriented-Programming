@@ -12,7 +12,8 @@ class Paperboy:
 #Quota method
     def quota(self): 
         quota = 50 + (self.experience /2)
-        return f"{self.name} has to deliver {quota} papers today."
+        return quota
+   
 
 # #Deliver method 
     def deliver(self, start_address, end_address): 
@@ -33,17 +34,15 @@ class Paperboy:
 
 
 #print information about paperboy 
-jack = Paperboy('Jack', 20, 25.00,)
-les = Paperboy('Les', 20 , 6.25)
+jack = Paperboy('Jack')
+les = Paperboy('Les')
 print(jack)
 print(les)
 
 # get daily quota 
 print(jack.quota())
 
-
-
-
-
-
+#daily earnings 
+jack.deliver(101, 160)
+print(jack.deliver(101, 160)) 
 
