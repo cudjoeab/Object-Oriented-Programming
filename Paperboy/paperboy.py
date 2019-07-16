@@ -11,13 +11,13 @@ class Paperboy:
 
 #Quota method
     def quota(self): 
-        quota = 50 + (self.experience /2)
+        quota = 50 + int(self.experience /2)
         return quota
    
 
 # #Deliver method 
     def deliver(self, start_address, end_address): 
-        num_houses = start_address - end_address + 1
+        num_houses = abs(start_address - end_address)
         quota = self.quota()
 
         self.experience += num_houses 
@@ -26,10 +26,12 @@ class Paperboy:
 
         if num_houses < quota: 
             daily_earnings = (num_houses * 0.25) - 2.00
+            self.experience += num_houses
         if num_houses > quota: 
             daily_earnings = (quota * 0.25) 
             bonus = (num_houses - quota) * 0.50
             daily_earnings = daily_earnings + bonus 
+            self.experience += num_houses
         return daily_earnings 
 
 
