@@ -1,8 +1,9 @@
 class Paperboy:
-    def __init__(self, name, experience, earnings):
+    def __init__(self, name, experience = 0, earnings = 0):
         self.name = name
         self.experience = experience
         self.earnings = earnings
+        
     
 #String method 
     def __str__(self):
@@ -10,17 +11,39 @@ class Paperboy:
 
 #Quota method
     def quota(self): 
-        return 50 + (self.experience/2)
-        if self.experience == 0:
-            return 50
-        else:
-            return 50 + (self.experience/2)
+        quota = 50 + (self.experience /2)
+        return f"{self.name} has to deliver {quota} papers today."
+
+# #Deliver method 
+    def deliver(self, start_address, end_address): 
+        num_houses = start_address - end_address + 1
+        quota = self.quota()
+
+        self.experience += num_houses 
+
+        daily_earnings = 0.0 
+
+        if num_houses < quota: 
+            daily_earnings = (num_houses * 0.25) - 2.00
+        if num_houses > quota: 
+            daily_earnings = (quota * 0.25) 
+            bonus = (num_houses - quota) * 0.50
+            daily_earnings = daily_earnings + bonus 
+        return daily_earnings 
 
 
 #print information about paperboy 
-jack = Paperboy('Jack', 100, 25.00)
-les = Paperboy('Les', 50, 6.25)
+jack = Paperboy('Jack', 20, 25.00,)
+les = Paperboy('Les', 20 , 6.25)
 print(jack)
 print(les)
+
+# get daily quota 
+print(jack.quota())
+
+
+
+
+
 
 
