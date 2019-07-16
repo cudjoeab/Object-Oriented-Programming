@@ -8,7 +8,13 @@ class Paperboy:
     def __str__(self):
         return f"{self.name} has delivered {self.experience} papers and made ${self.earnings}."
 
-
+#Quota method
+    def quota(self): 
+        return 50 + (self.experience/2)
+        if self.experience == 0:
+            return 50
+        else:
+            return 50 + (self.experience/2)
 
 
 #print information about paperboy 
